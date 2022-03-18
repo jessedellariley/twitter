@@ -18,7 +18,7 @@ object TimeFormatter {
         format.isLenient = true
         try {
             val diff = (System.currentTimeMillis() - format.parse(rawJsonDate).time) / 1000
-            if (diff < 5) time = "Just now" else if (diff < 60) time =
+            if (diff < 5) time = "now" else if (diff < 60) time =
                 String.format(Locale.ENGLISH, "%ds", diff) else if (diff < 60 * 60) time =
                 String.format(Locale.ENGLISH, "%dm", diff / 60) else if (diff < 60 * 60 * 24) time =
                 String.format(
