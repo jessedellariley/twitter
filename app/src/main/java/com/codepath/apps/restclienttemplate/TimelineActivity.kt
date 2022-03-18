@@ -3,6 +3,9 @@ package com.codepath.apps.restclienttemplate
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -49,6 +52,19 @@ class TimelineActivity : AppCompatActivity() {
         rvTweets.adapter = adapter
 
         populateHomeTimeline()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    // Handles clicks on menu item
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.compose) {
+            Toast.makeText(this,"Ready to compose Tweet!", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun populateHomeTimeline() {
